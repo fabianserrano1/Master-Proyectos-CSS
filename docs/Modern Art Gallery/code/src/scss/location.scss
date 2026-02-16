@@ -1,0 +1,712 @@
+@use 'variables' as *;
+@use 'mixins' as *; /* para los breakpoints */
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+main, .mapa {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* --- Main --- */
+main.location-main {
+  display: flex;
+  flex-direction: column;
+  font-family: $fuente-principal;
+  color: $color-black-text;
+  width: 375px; // mobile-first
+  margin: 0 auto;
+  height: auto; // no limitar altura
+}
+
+/* --- Mapa --- */
+.mapa {
+  position: relative;
+  width: 375px;
+  height: 550px; 
+  background-image: url(/img/Bitmap.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* --- Boton back to home --- */
+  .boton {
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 260px;
+    height: 72px;
+    text-decoration: none;
+    font-family: $fuente-secundaria;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    outline: none; 
+}
+
+/* --- Texto dentro del botón (204x72) --- */
+.boton > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 204px;
+  height: 72px;
+  background-color: $color-black-bg;
+  color: $color-white;
+}
+
+/* --- Caja que contiene la flecha (56x72) --- */
+.boton > .caja-flecha {
+  width: 56px;
+  height: 72px;
+  background-color: $color-gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Flecha dentro de la caja (8x24) --- */
+.boton > .caja-flecha > img {
+  width: 8px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* --- Hover: invertir colores --- */
+.boton:hover > span {
+  background-color: $color-gold;
+  color: $color-black-bg;
+}
+
+.boton:hover > .caja-flecha {
+  background-color: $color-black-bg;
+}
+
+  /* --- Marcador de posicion --- */
+  img.posicion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 66px;
+    height: 88px;
+  }
+}
+
+/* --- localizacion --- */
+.location {
+  background-color: $color-black-text;
+  display: flex;
+  flex-direction: column;
+  width: 375px; // mobile
+  height: 493px;
+  padding-bottom: 40px;
+  
+
+  .titulo-location {
+    font-family: $fuente-secundaria;
+    font-weight: 900;
+    font-size: 50px;
+    color: $color-white;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-top: 48px;
+    margin-left: 16px;
+    margin-bottom: 40px;
+  }
+
+  .info-location {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .titulo-info h3 {
+      font-family: $fuente-secundaria;
+      font-weight: 900;
+      font-size: 2rem;
+      color: $color-gold;
+      text-transform: uppercase;
+      margin-left: 16px;
+      margin-bottom: 12px;
+    }
+
+    .direccion p {
+      font-family: $fuente-principal;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 100;
+      line-height: 1.75;
+      margin-left: 16px;
+      margin-bottom: 12px;
+
+      span {
+        display: block;
+        font-family: $fuente-principal;
+        color: $color-white;
+      }
+    }
+
+    .texto p {
+      font-family: $fuente-principal;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 100;
+      line-height: 1.5;
+      margin-bottom: 56px;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+
+/* --- Breakpoints --- */
+/* --- Tablet (>=768px)  */
+@include respond-to(tablet) {
+  main.location-main {
+    display: flex;
+    flex-direction: column;
+    font-family: $fuente-principal;
+    color: $color-black-text;
+    width: 768px; 
+    height: 1036px !important;
+    margin: 0 auto !important;       
+  
+
+  /* --- Mapa --- */
+.mapa {
+  position: relative;
+  width: 768px;
+  height: 600px; 
+  background-image: url(/img/Bitmap.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* --- Boton back to home --- */
+  .boton {
+    position: absolute;
+    margin-top: 0;
+    margin-left: 39px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 260px;
+    height: 72px;
+    text-decoration: none;
+    font-family: $fuente-secundaria;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    outline: none; 
+}
+
+/* --- Texto dentro del botón (204x72) --- */
+.boton > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 204px;
+  height: 72px;
+  background-color: $color-black-bg;
+  color: $color-white;
+}
+
+/* --- Caja que contiene la flecha (56x72) --- */
+.boton > .caja-flecha {
+  width: 56px;
+  height: 72px;
+  background-color: $color-gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Flecha dentro de la caja (8x24) --- */
+.boton > .caja-flecha > img {
+  width: 8px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* --- Hover: invertir colores --- */
+.boton:hover > span {
+  background-color: $color-gold;
+  color: $color-black-bg;
+}
+
+.boton:hover > .caja-flecha {
+  background-color: $color-black-bg;
+}
+
+  /* --- Marcador de posicion --- */
+  img.posicion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 66px;
+    height: 88px;
+  }
+
+  /* --- localizacion --- */
+  .location {
+    width: 768px;
+    height: 436px;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 !important;   
+
+    .titulo-location {
+      font-family: $fuente-secundaria;
+      font-size: 55px;
+      font-weight: 900;
+      line-height: 55px;
+      width: 223px;
+      height: 100px;
+      margin-left: 19px;
+      margin-top: 88px;
+    }
+
+    .info-location {
+      width: 405px;
+      height: 268px;
+      margin-top: 88px;
+      margin-left: 68px; 
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .titulo-info, .direccion,.texto {
+    width: 100%;
+    }
+
+    .titulo-info h3 {
+      font-family: $fuente-secundaria;
+      font-size: 32px;
+      font-weight: 900;
+      margin-left: 0 !important;
+      width: 350px;
+      height: 32px;
+      margin-bottom: 20px;
+    }
+
+    .direccion p {
+      font-family: $fuente-principal;
+      font-size: 18px;
+      font-weight: 100;
+      margin-bottom: 20px;
+      margin-left: 0 !important;
+      width: 100%;
+      max-width: 398px;
+      height: 84px;
+
+      span {
+        display: block;
+        font-family: $fuente-principal;
+        color: $color-white;
+      }
+    }
+
+    .texto p {
+      font-family: $fuente-principal;
+      font-size: 18px;
+      font-weight: 100;
+      width: 100%;
+      max-width: 398px;
+      height: 112px;
+      margin: 0 !important;
+      overflow-wrap: break-word;
+      white-space: normal;
+      word-break: normal;
+      
+
+      span {
+        display: inline !important;
+      }
+    }
+  }
+}
+} // fin main.location-main
+
+/* --- Laptop (>=1024px)  */
+@include respond-to(laptop) {
+  main.location-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    font-family: $fuente-principal;
+    color: $color-black-text;
+    width: 1024px;
+    margin: 0 auto !important;
+    height: 816.26px !important;         
+    overflow: visible !important;
+    
+    /* --- Mapa --- */
+    .mapa {
+      position: relative;
+      width: 1024px;
+      height: 426.66px;      // Figma
+      background-image: url(/img/Bitmap.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+      
+
+    /* --- Botón Back to Home --- */
+    .boton {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 110px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 260px;
+      height: 72px;
+      text-decoration: none;
+      font-family: $fuente-secundaria;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      outline: none; 
+    } // fin boton
+
+    .boton > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 204px;
+      height: 72px;
+      background-color: $color-black-bg;
+      color: $color-white;
+    } // fin boton > span
+
+    .boton > .caja-flecha {
+      width: 56px;
+      height: 72px;
+      background-color: $color-gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    } // fin boton > .caja-flecha
+
+    .boton > .caja-flecha > img {
+      width: 8px;
+      height: 24px;
+      object-fit: contain;
+    } // fin boton > .caja-flecha > img
+
+    .boton:hover > span {
+      background-color: $color-gold;
+      color: $color-black-bg;
+    } // fin boton:hover > span
+
+    .boton:hover > .caja-flecha {
+      background-color: $color-black-bg;
+    } // fin boton:hover > .caja-flecha
+
+    /* --- Marcador de posición --- */
+    img.posicion {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 66px;
+      height: 88px;
+    } // fin img.posicion
+    } // fin .mapa
+
+    /* --- Location --- */
+    .location {
+      width: 1024px !important;
+      height: 389.6px;      
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      align-items: flex-start;
+      background-color: $color-black-text; 
+    
+
+      .titulo-location {
+        font-family: $fuente-secundaria;
+        font-size: 55px;
+        font-weight: 900;
+        line-height: 55px;
+        width: 223px;
+        height: 100px;
+        margin: 0;
+        padding-left: 117px;
+        padding-top: 73.95px;
+       
+
+        color: $color-white;
+      } // fin .titulo-location
+
+      .info-location {
+        width: 450px;
+        height: 268px;
+        margin: 0;
+        margin-left: 156.44px;
+        margin-top: 73.95px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-shrink: 0;
+        
+
+        .titulo-info, .direccion, .texto {
+          width: 100%;
+        } // fin .titulo-info, .direccion, .texto
+
+        .titulo-info h3 {
+          font-family: $fuente-secundaria;
+          font-size: 36px;
+          font-weight: 900;
+          width: 350px;
+          height: 32px;
+          margin: 0 0 15px 0;
+          color: $color-gold;
+        } // fin .titulo-info h3
+
+        .direccion p {
+          font-family: $fuente-principal;
+          font-size: 16px;
+          font-weight: 100;
+          width: 100%;
+          max-width: 420px;
+          height: 84px;
+          margin:  0 17px 0;
+          color: $color-white;
+
+          span {
+            display: block;
+          }
+        } // fin  .direccion p
+
+        .texto p {
+          font-family: $fuente-principal;
+          font-size: 16px;
+          font-weight: 100;
+          width: 100%;
+          max-width: 398px;
+          height: 112px;
+          margin: 0;
+          color: $color-white;
+          overflow-wrap: break-word;
+          white-space: normal;
+          word-break: normal;
+
+          span {
+            display: inline !important;
+          }
+        } // fin .texto p
+      } // fin .info-location
+    } // fin .location
+  } // fin main.location-main
+} /* fin laptop */
+
+
+/* --- Laptop (>=1440px)  */
+@include respond-to(desktop) {
+  main.location-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    font-family: $fuente-principal;
+    color: $color-black-text;
+    width: 1440px;
+    margin: 0 auto !important;
+    height: 1148px !important;         
+    overflow: visible !important;
+    
+    /* --- Mapa --- */
+    .mapa {
+      position: relative;
+      width: 1440px;
+      height: 600px;      // Figma
+      background-image: url(/img/Bitmap.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+      
+
+    /* --- Botón Back to Home --- */
+    .boton {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 156px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 260px;
+      height: 72px;
+      text-decoration: none;
+      font-family: $fuente-secundaria;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      outline: none; 
+    } // fin boton
+
+    .boton > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 204px;
+      height: 72px;
+      background-color: $color-black-bg;
+      color: $color-white;
+    } // fin boton > span
+
+    .boton > .caja-flecha {
+      width: 56px;
+      height: 72px;
+      background-color: $color-gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    } // fin boton > .caja-flecha
+
+    .boton > .caja-flecha > img {
+      width: 8px;
+      height: 24px;
+      object-fit: contain;
+    } // fin boton > .caja-flecha > img
+
+    .boton:hover > span {
+      background-color: $color-gold;
+      color: $color-black-bg;
+    } // fin boton:hover > span
+
+    .boton:hover > .caja-flecha {
+      background-color: $color-black-bg;
+    } // fin boton:hover > .caja-flecha
+
+    /* --- Marcador de posición --- */
+    img.posicion {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 66px;
+      height: 88px;
+    } // fin img.posicion
+    } // fin .mapa
+
+    /* --- Location --- */
+    .location {
+      width: 1440px !important;
+      height: 548px;      
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      align-items: flex-start;
+      background-color: $color-black-text; 
+    
+
+      .titulo-location {
+        font-family: $fuente-secundaria;
+        font-size: 70px;
+        font-weight: 900;
+        line-height: 70px;
+        width: 350px;
+        height: 140px;
+        margin: 0;
+        padding-left: 165px;
+        padding-top: 104px;        
+       
+
+        color: $color-white;
+      } // fin .titulo-location
+
+      .info-location {
+        width: 540px;
+        height: 316px;
+        margin: 0;
+        margin-top: 104px;
+        margin-left: 410px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-shrink: 0;
+        
+
+        .titulo-info, .direccion, .texto {
+          width: 100%;
+        } // fin .titulo-info, .direccion, .texto
+
+        .titulo-info h3 {
+          font-family: $fuente-secundaria;
+          font-size: 36px;
+          font-weight: 900;
+          width: 350px;
+          height: 32px;
+          color: $color-gold;
+          
+        } // fin .titulo-info h3
+
+        .direccion p {
+          font-family: $fuente-principal;
+          font-size: 22px;
+          font-weight: 100;
+          line-height: 1.50;
+          width: 100%;
+          max-width: 420px;
+          height: 96px;
+          margin-top: 24px;
+          color: $color-white;
+          
+
+          span {
+            display: block;
+          }
+        } // fin  .direccion p
+
+        .texto p {
+          font-family: $fuente-principal;
+          font-size: 22px;
+          font-weight: 100;
+          line-height: 1.5;
+          width: 100%;
+          max-width: 535px;
+          height: 128px;
+          margin-top: 32px !important;
+          color: $color-white;
+          overflow-wrap: break-word;
+          white-space: normal;
+          word-break: normal;
+          
+          span {
+            display: inline !important;
+          }
+        } // fin .texto p
+      } // fin .info-location
+    } // fin .location
+  } // fin main.location-main
+} /* fin desktop */

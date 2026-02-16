@@ -1,0 +1,212 @@
+@use 'variables' as *;
+@use 'mixins' as *; /* para los breakpoints */
+
+
+
+header {    
+  background-color: $color-black;
+
+  /* --- Header Mobile-First --- */
+  .cabecera {
+    width: 100%;
+    max-width: 9.625rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    margin-left: 6.875rem;
+
+
+    }
+
+  .logo {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-white;
+    margin-bottom: 1.25rem;
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 1.5625rem;
+    
+
+    img {
+      width: 1.1875rem;
+      height: 1.1875rem;
+      fill: $color-white;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.5);
+        filter: invert(70%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(150%) contrast(100%);
+    }
+  }
+}
+}
+
+/* --- Breakpoints --- */
+/* --- Tablet (>=768px) --- */
+@include respond-to(tablet) {
+ header {    
+  background-color: $color-black;
+  position: relative;
+
+  .cabecera {
+    width: 100%;
+    max-width: 48rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 360px;
+    margin-top: 1.8125rem;
+    margin-left: 1.875rem;
+    margin-right: 1.875rem;
+  
+  }
+
+  .logo {
+    margin: 0;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-white;
+    
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 1.5625rem;
+    z-index: 10;
+    
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $color-white;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.5);
+        filter: invert(70%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(150%) contrast(100%);
+    }
+  }
+}
+ }
+}
+
+/* --- laptop (>=1024px) --- */
+@include respond-to(laptop) {
+ header {    
+  background-color: $color-black;
+  position: relative;
+
+  .cabecera {
+    width: 100%;
+    max-width: 64rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 640px;
+    margin-top: 1.8125rem;
+    //margin-left: 8.7rem;
+    //margin-right: 1.875rem;
+    margin: 0 auto;
+  
+  
+  }
+
+  .logo {
+    margin: 0;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-white;
+    
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 1.5625rem;
+    z-index: 10;
+    
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $color-white;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.5);
+        filter: invert(70%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(150%) contrast(100%);
+    }
+  }
+}
+ }
+}
+
+/* --- desktop (>=1440px) --- */
+@include respond-to(desktop) {
+ header {    
+  background-color: $color-black;
+  position: relative;
+
+  .cabecera {
+    width: 100%;
+    max-width: 90rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 44rem;
+    margin-top: 1.8125rem;
+    margin-left: 8.7rem;
+    margin-right: 1.875rem;
+  
+  }
+
+  .logo {
+    margin: 0;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-white;
+    
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 1.5625rem;
+    z-index: 10;
+    
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $color-white;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.5);
+        filter: invert(70%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(150%) contrast(100%);
+    }
+  }
+}
+ }
+}
+
+
+

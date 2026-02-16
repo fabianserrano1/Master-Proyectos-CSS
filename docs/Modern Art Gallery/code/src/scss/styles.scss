@@ -1,0 +1,32 @@
+@use './variables' as *;
+@use './mixins' as *; /* para los breakpoints */
+
+@use './home' as *;
+@use './location' as *;
+@use './footer' as *;
+
+/* --- reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 375px; // mobile-first base
+  height: auto;
+  display: block;   // 👈 anula el flex heredado
+  
+}
+
+/* --- reglas globales --- */
+body {
+  width: 100%;
+  min-width: 375px;
+}
+
+

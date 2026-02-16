@@ -1,0 +1,401 @@
+@use './variables' as *;
+
+/* --- Reset --- */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: $fuente-principal;
+  background-color: $color-black;
+  display: flex;
+  flex-direction: column;
+  width: 120rem; /* ancho total según Figma */
+  height: 67.5rem; /* alto total según Figma */
+  margin: 0;
+
+}
+
+/* --- Header--- */
+header {
+  width: 120rem;        /* ancho fijo según Figma */
+  height: 7.5rem;       /* alto fijo según Figma */
+  margin: 0 auto;       /* centrado en la página */
+  display: flex;
+  align-items: center;
+  padding-top: 2.3125rem;    /* separación superior */
+  margin-bottom: 5rem;  /* separación inferior */
+}
+
+/* --- LOGO --- */
+.logo {
+  font-family: $fuente-secundaria;
+  font-weight: 700;
+  font-size: 2.25rem;
+  text-decoration: none;
+  margin-left: 3.8rem;   /* posición desde la izquierda */
+  margin-right: 30rem; /* distancia exacta al nav según Figma */
+}
+
+.logo-gath {
+  color: $color-pink;
+}
+.logo-session {
+  color: $color-white;
+}
+.logo-punto {
+  color: $color-pink;
+}
+
+/* --- Nav header --- */
+.nav-header {
+  margin-right: 15.625rem; /* posición desde la derecha */
+}
+
+.nav-header ul {
+  display: flex;
+  gap: 2.8125rem; /* espacio entre elementos del menú */
+  list-style: none;
+}
+
+.nav-header ul li a {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: $fuente-principal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: $color-gray;
+  transition: color 0.3s ease;
+
+  /* --- Barra inferior subrayado --- */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.25rem; /* separacion del texto */
+    right: 50%;
+    width: 0;
+    height: 0.125rem;
+    background-color: $color-pink;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+
+  /* --- Hover ---(para los demas elementos que no sea Home porque esta active, 
+  he querido poner el hover en amarilo para que cuando se pase con el raton por 
+  encima de los demas elementos del nav haya una reaccion visual */
+  &:hover {
+    color: $color-yellow; // texto amarillo
+    &::after {
+      width: 50%;
+      background-color: $color-yellow; // subrayado amarillo
+    }
+  }
+
+  /* --- Estado activo (la página actual Home) --- */
+  &.active {
+    color: $color-white; // texto blanco fijo
+    &::after {
+      width: 50%;
+      background-color: $color-pink; // subrayado rosa fijo
+    }
+  }
+}
+
+
+/* --- Main ---*/
+.main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch; /* para que los hijos ocupen toda la altura */
+  width: 120rem;
+  height: calc(67.5rem - 7.5rem); /* calcula la altura restante debajo del header */
+  margin: 0 auto;
+}
+/* --- Contenedor izquierdo ---*/
+.izq-container {
+  width: 50%;                
+  display: flex;
+  flex-direction: column;    
+  justify-content: flex-start;  
+  align-items: flex-start;      
+  gap: 2rem;                   /* espacio vertical entre contenido e iconos */
+  padding-left: 8rem;          /* separación del borde izquierdo */
+  margin-top: 4rem;         /* separación del borde superior header */
+}
+
+/* --- Contenedor que contiene (titulo + texto + botones) --- */
+.contenido {
+  display: flex;
+  flex-direction: column;
+                   
+}
+
+/* --- Titulo y texto --- */
+.titulo h1 {
+  font-family: $fuente-secundaria;
+  font-size: 4.6rem;
+  font-weight: 700;
+  color: $color-white;
+  line-height: 1.3; /* espacio entre líneas */
+  margin-bottom: 3rem;
+}
+
+.titulo p {
+  font-family: $fuente-principal;
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: $color-white;
+  opacity: 0.5;
+  line-height: 1.8;  /* espacio entre líneas */
+  margin-bottom: 3.5rem;
+}
+.titulo h1,
+.titulo p {
+  display: flex;
+  flex-direction: column; /* cada span en su propia línea */
+}
+
+.titulo h1 span,
+.titulo p span {
+  display: block; /* fuerza que cada span baje a la siguiente línea */
+}
+
+/* --- Botones --- */
+.botones {
+  display: flex;
+  gap: 2rem;                   /* espacio entre botones */
+  margin-bottom: 6rem;
+
+  .btn-started {
+    font-family: $fuente-principal;
+    color: $color-white;
+    font-size: 1.125rem;
+    font-weight: normal;
+    white-space: nowrap;
+    width: 15rem;             /* ancho fijo */
+    height: 3.75rem;          /* alto fijo */
+    background-color: $color-pink;
+    text-decoration: none;
+    border-radius: 1rem 1rem 1rem 0;       /* bordes redondeados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-pink, 10%);
+    }
+  }
+
+  .boton-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  .btn-more {
+    font-family: $fuente-principal;
+    color: $color-white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+
+    img {
+      width: 2.5rem;
+      height: auto;
+      display: block;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &:hover {
+    .btn-more {
+      color: $color-pink; // cambia el texto
+    }
+    .btn-more img {
+      content: url('/img/flecha-rosa.svg'); // cambia la imagen a la versión rosa
+    }
+  }
+}
+}
+
+/* --- Contenedor iconos --- */
+.iconos {
+  display: flex;                  
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem;                      
+
+  div {
+    display: flex;                 
+    align-items: center;
+    gap: 1rem;                     
+    padding: 1rem;                 
+    border-radius: 1rem;           
+    transition: background-color 0.3s ease; // transición suave solo para el color
+
+    &:hover {
+      background-color: $color-pink; // cambia el fondo al pasar el ratón
+      cursor: pointer;
+    }
+
+    .icono-img {
+      width: 4rem;                 
+      height: 4rem;                
+      background-color: #8C8C8C;  
+      border-radius: 1rem;          
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        width: 2.5rem;                
+        height: 2.5rem;
+        object-fit: contain;
+        display: block;
+      }
+    }
+
+    img {
+      display: none; 
+    }
+
+    p {
+      margin: 0;
+      display: flex;
+      flex-direction: column;      
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: $color-white;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
+ 
+/* --- Contenedor derecho fotos --- */
+.der-container {
+  position: relative;          /* importante para que las elipses se posicionen respecto al contenedor */
+  width: 50%;                  /* ocupa el 50% del main */
+  display: flex;             
+  justify-content: flex-start; /* separa columnas */
+  align-items: stretch;        /* cada columna ocupa todo el alto del contenedor */
+  column-gap: 2rem; 
+  margin-top: 2.375rem;        /* separación del borde superior header*/ 
+  padding-left: 2rem;
+  /*padding-right: 0rem; */       /* separación del borde derecho */
+  overflow: hidden;   /* oculta lo que sobresale */
+}
+
+/* --- Columna 1 --- */
+.col1 {
+  display: grid; 
+  row-gap: 2rem; 
+  align-content: start;           
+}
+
+.man1 {
+  width: 15rem;              
+  height: 31.8125rem;       
+  background-color: $color-blue;
+  border-radius: 5rem;       
+  overflow: hidden;
+}
+
+.woman1 {
+  width: 15rem;             
+  height: 15rem;             
+  background-color: $color-pink;
+  border-radius: 5rem;       
+  overflow: hidden;
+}
+
+/* --- Columna 2 --- */
+.col2 {
+  display: grid; 
+  row-gap: 2rem;
+  align-content: start;             
+}
+
+.woman2 {
+  width: 15rem;
+  height: 15rem;
+  background-color: $color-cyan;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+
+.man2 {
+  width: 15rem;
+  height: 31.8125rem;
+  background-color: $color-orange;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+
+/* --- Columna 3 --- */
+.col3 {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  margin-right: 3rem;        /* separación del borde derecho */
+}
+
+.woman3 {
+  width: 15rem;
+  height: 31.8125rem;
+  background-color: $color-yellow;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+
+/* --- Imagenes dentro de cada caja --- */
+.der-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Elipses --- */
+.ellipse1,
+.ellipse2 {
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;        /* sin relleno */
+  z-index: -1;                    /* por debajo de las fotos */
+  pointer-events: none;           /* decorativo */
+}
+
+
+.ellipse1 {
+  position: absolute;
+  width: 65rem;
+  height: 65rem;
+  border-radius: 50%;
+  border: 1px solid $color-gray;
+  top: 5rem;       /* la subes/bajas */
+  right: -12rem;   /* la desplazas a la derecha */
+  z-index: -1;     /* por debajo de las fotos */
+}
+.ellipse2 {
+  position: absolute;
+  width: 55rem;
+  height: 55rem;
+  border-radius: 50%;
+  border: 1px solid $color-gray;
+  top: 25rem;       /* la subes/bajas */
+  right: -18rem;   /* la desplazas a la derecha */
+  z-index: -1;     /* por debajo de las fotos */
+}
+

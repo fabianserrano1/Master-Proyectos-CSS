@@ -1,0 +1,1039 @@
+@use 'variables' as *;
+@use 'mixins' as *; /* para los breakpoints */
+
+/* Reset global */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Span block solo en versión móvil --- */
+h1 span,
+h2 span,
+h3 span,
+p span {
+  display: block !important; // fuerza que cada span sea bloque
+}
+
+/* --- Main Home version mobile-first--- */
+main {
+  width: 23.4375rem; // 375px
+  height: 39.375rem; // 630px
+  margin: 0; // reset margen
+  display: flex; /* contenedor flex */
+  flex-direction: column; // apilados verticalmente
+  align-items: center; // centrados horizontalmente
+  font-family: $fuente-principal;
+  color: $color-black-text;
+}
+
+/* --- Imagen de personas --- */
+.personas {
+  width: 23.4375rem; // 375px
+  height: 15rem; // 240px
+  margin: 0;
+}
+
+.personas img {
+  width: 100%; // cubrir todo el contenedor
+  height: 100%; // cubrir todo el contenedor
+  object-fit: cover; // cubrir todo el contenedor
+  display: block; // elimina espacio inferior
+}
+
+/* --- Caja que contiene h1, p y botón --- */
+.contenido {
+  display: block; // bloque por defecto
+  width: 100%; // 375px
+  margin: 0; // reset margen
+}
+
+/* --- Título --- */
+.titulo h1 {
+  width: calc(100% - 2rem); // 343px
+  margin: 2rem 1rem; //
+  font-family: $fuente-secundaria;
+  font-weight: 800; // negrita
+  font-size: 3.75rem; // 60px
+  line-height: 3.4375rem; // 55px
+  text-transform: uppercase; // mayúsculas
+  color: $color-black-text;
+}
+
+/* --- Texto --- */
+.texto p {
+  width: calc(100% - 2rem); // 343px
+  margin: 0 1rem 2rem; // 0px 16px 32px
+  font-family: $fuente-principal;
+  font-size: 1.125rem; // 18px
+  line-height: 1.75rem; // 28px
+  color: $color-dark-gray;
+  text-align: left; // alineado a la izquierda
+}
+
+/* --- Botón --- */
+.boton {
+  display: inline-flex; // contenedor flex inline
+  align-items: center; // centrar verticalmente
+  justify-content: space-between; // separar texto y flecha
+  width: 16.25rem; // 260px
+  height: 4.5rem; // 72px
+  margin-left: 1rem; // 16px
+  margin-right: 4.5rem; // 72px
+  margin-bottom: 7.5rem; // 120px
+  text-decoration: none; // sin subrayado
+  font-family: $fuente-secundaria;
+  font-weight: 700; // semi-negrita
+  font-size: 1.25rem; // 20px
+  text-transform: uppercase; // mayúsculas
+  letter-spacing: 0.2275rem !important; // 3.64px
+}
+
+/* --- Texto y flecha dentro del botón --- */
+.boton > span {
+  display: flex; // contenedor flex
+  align-items: center; // centrar verticalmente
+  justify-content: center; // centrar horizontalmente
+  width: 12.75rem; // 204px
+  height: 4.5rem; // 72px
+  background-color: $color-black-bg;
+  color: $color-white;
+}
+
+.boton > .caja-flecha {
+  width: 3.5rem; // 56px
+  height: 4.5rem; // 72px
+  background-color: $color-gold;
+  display: flex; // contenedor flex
+  align-items: center; // centrar verticalmente
+  justify-content: center; // centrar horizontalmente
+}
+
+.boton > .caja-flecha > img {
+  width: 0.5rem; // 8px
+  height: 1.5rem; // 24px
+  object-fit: contain; // mantener proporciones
+}
+
+/* Hover: invertir colores */
+.boton:hover > span {
+  background-color: $color-gold; 
+  color: $color-black-bg;
+}
+
+.boton:hover > .caja-flecha {
+  background-color: $color-black-bg; 
+}
+
+/* --- Galeria (mobile-first) --- */
+.galeria {
+  width: 21.4375rem; // 343px
+  display: flex; // contenedor flex
+  flex-direction: column; // apilados en mobile
+  margin-left: 1rem; // 16px
+  margin-top: 2rem; // 32px
+  margin-bottom: 7.5rem; // separación del footer
+  gap: 0; // quitamos el gap general, usamos márgenes individuales
+
+  .galeria-1 {
+    margin-bottom: 1.5625rem; // 25px
+    img {
+      width: 21.4375rem; // 343px
+      height: 20rem; // 320px
+      display: block; // elimina espacio inferior
+    }
+  }
+
+  .titulo2 {
+    width: 21.4375rem; // 343px
+    height: 13.9375rem; // 223px
+    margin-bottom: 0;
+    h2 {
+      font-family: $fuente-secundaria;
+      font-weight: 800;
+      font-size: 3.125rem; // 50px
+      line-height: 1.1; // altura de línea 1.1 veces el tamaño de fuente
+      margin-bottom: 1.3125rem; // 21px
+      text-transform: uppercase; // mayúsculas
+    }
+    p {
+      font-family: $fuente-principal;
+      font-size: 1.125rem; // 18px
+      line-height: 1.75rem; // 28px
+      color: $color-dark-gray;
+    }
+  }
+
+  .galeria-2 {
+    margin-top: 2rem; // 32px
+    margin-bottom: 1rem; // 16px
+    img {
+      width: 21.4375rem; // 343px
+      height: 30rem; // 480px
+      display: block; // elimina espacio inferior
+    }
+  }
+
+  .galeria-3 {
+    margin-bottom: 1rem;  // 16px
+    img {
+      width: 21.4375rem; // 343px
+      height: 12.5rem; // 200px
+      display: block; // elimina espacio inferior
+    }
+  }
+
+  .titulo3 {
+    width: 21.4375rem; // 343px
+    height: 18.375rem; // 293px
+    background-color: $color-black-text;
+    color: $color-white !important;
+    padding: 1.5rem 1.75rem; // 24px 28px
+
+    h2 {
+      font-family: $fuente-secundaria;
+      font-weight: 800; // negrita
+      font-size: 3.125rem; // 50px
+      line-height: 1.1; // altura de línea 1.1 veces el tamaño de fuente
+      margin-bottom: 1rem; // 16px
+      text-transform: uppercase; // mayúsculas
+    }
+
+    p {
+      font-family: $fuente-principal;
+      font-size: 1.125rem; // 18px
+      line-height: 1.75rem; // 28px
+      color: $color-white !important;
+    }
+  }
+}
+
+/* --- Breakpoints --- */
+/* --- Tablet (>=768px) --- */
+@include respond-to(tablet) {
+  html, body {
+    margin: 0;
+    padding: 0; 
+    width: 48rem; // 768px
+    height: 100%; 
+    margin-left: auto; // centrar horizontalmente
+    margin-right: auto; // centrar horizontalmente
+  } // fin html, body
+
+  main {
+    width: 48rem; // 768px
+    max-width: none; // quitar max-width
+    height: 43.75rem; // 700px
+    display: flex; // contenedor flex
+    flex-direction: row; // fila
+    align-items: flex-start; // alinear al inicio
+    position: relative; // para posicionar elementos hijos
+    margin: 0 !important; // reset margen
+    padding: 0 !important; // reset padding
+    margin-bottom: 7.5rem !important; // 120px
+
+    .personas {
+      width: 27.3125rem; // 438px
+      height: 43.75rem; // 700px
+      margin: 0; // reset margen
+      padding: 0; //  reset padding
+      display: block; // bloque por defecto
+    } // fin personas
+
+    .personas img {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      object-fit: cover; // cubrir todo el contenedor
+      display: block; // elimina espacio inferior
+    } // fin img
+
+    .contenido {
+      position: absolute; // posición absoluta
+      top: 8.9375rem; // 143px
+      left: 24.3125rem; // 391px
+      width: 23.6875rem; // 379px
+      min-height: 25.625rem; // 410px
+      display: flex; // contenedor flex
+      flex-direction: column; // apilados verticalmente
+      justify-content: flex-start; // alinear al inicio
+      padding: 0;
+     
+      
+
+  // ⚡ Reset de márgenes internos para H1 y P
+  h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  } // fin reset
+
+  // H1: saltos de línea precisos
+  .titulo h1 {
+    font-family: $fuente-secundaria;
+    font-size: 4.375rem; // 70px
+    font-weight: 900; // extra-negrita
+    line-height: 1; // altura de línea igual al tamaño de fuente
+    color: $color-black-text;
+    width: 100%;
+    max-width: none; // quitar max-width
+    margin-bottom: 3rem; // 48px
+
+    span {
+      display: block !important; // fuerza que cada span sea bloque
+      white-space: normal !important; // permite saltos de línea
+      margin: 0 !important; 
+      padding: 0 !important;
+      line-height: 1 !important; // fuerza la altura exacta de línea
+    } // fin span
+  } // fin titulo h1
+
+  // P: saltos de línea precisos
+  .texto p {
+  font-family: $fuente-principal;
+  font-size: 1.125rem; // 18px
+  font-weight: 100; // peso ligero
+  line-height: 1.5; // altura de línea 1.5 veces el tamaño de fuente
+  color: $color-dark-gray;
+  margin-bottom: 3rem; // 48px
+
+  span {
+    display: block !important;       // fuerza que cada span sea bloque
+    white-space: pre-line !important; // respeta saltos de línea y espacios
+    line-height: 1.5 !important;     // fuerza la altura de línea 
+    margin: 0 !important;
+    padding: 0 !important;
+  } // fin span
+} // fin texto p
+
+
+  /* --- Boton our Location --- */
+  .boton {
+    position: static; // quita posición absoluta
+    display: inline-flex; // contenedor flex inline
+    align-self: flex-start; // alinear al inicio del contenedor
+    margin-top: 0;
+    margin-left: 0 !important;  
+    width: 16.25rem; // 260px
+    height: 4.5rem; // 72px
+    text-decoration: none; // sin subrayado
+    font-family: $fuente-secundaria;
+    font-weight: 700;
+    font-size: 1.25rem; // 20px
+    text-transform: uppercase; // mayúsculas
+    letter-spacing: 1px; 
+    transition: all 0.3s; // transición suave
+    outline: none;  // quita outline por defecto
+} // fin boton
+
+/* --- Texto dentro del botón (204x72) --- */
+.boton > span {
+  display: flex; // contenedor flex
+  align-items: center; // centrar verticalmente
+  justify-content: center;
+  width: 12.75rem; // 204px
+  height: 4.5rem; // 72px
+  background-color: $color-black-bg;
+  color: $color-white;
+} // fin span
+
+/* --- Caja que contiene la flecha (56x72) --- */
+.boton > .caja-flecha {
+  width: 3.5rem; // 56px
+  height: 4.5rem; // 72px
+  background-color: $color-gold;
+  display: flex; // contenedor flex
+  align-items: center; // centrar verticalmente
+  justify-content: center; // centrar horizontalmente
+} // fin caja-flecha
+
+/* --- Flecha dentro de la caja (8x24) --- */
+.boton > .caja-flecha > img {
+  width: 0.5rem; // 8px
+  height: 1.5rem; // 24px
+  object-fit: contain;
+} // fin img
+
+/* --- Hover: invertir colores --- */
+.boton:hover > span {
+  background-color: $color-gold;
+  color: $color-black-bg;
+} // fin hover span
+
+.boton:hover > .caja-flecha {
+  background-color: $color-black-bg;
+} // fin hover caja-flecha
+} // fin contenido
+
+} // fin main
+
+/* GALERÍA EN GRID */
+.galeria {
+  display: flex; // contenedor flex
+  flex-direction: column; // apilados verticalmente
+  width: 43.0625rem !important; // 689px
+  margin-left: auto; // centrar horizontalmente
+  margin-right: auto; // centrar horizontalmente
+  margin-top: 0.6875rem; // 11px
+  gap: 0.6875rem; // 11px separación entre bloque superior e inferior
+
+  article, h2, p, span {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; // para incluir padding y border en el tamaño
+  } // fin article, h2, p, span
+
+  h2 span,
+  p span {
+    display: inline !important; // inline para que no rompa líneas
+    white-space: normal !important; // permite saltos de línea
+  } // fin h2 span, p span
+
+  /* --- BLOQUE SUPERIOR --- */
+  .bloque-superior {
+    display: grid; // usar grid
+    width: 43.0625rem !important; // 689px
+    height: 25rem !important; // 400px
+    grid-template-columns: 13.9375rem 24.875rem; // titulo2 223px y galeria-1 398px
+    grid-template-rows: 25rem; // 400px
+    column-gap: 4.25rem; // 67px separación entre titulo2 y galeria-1
+
+    .titulo2 {
+      grid-column: 1 / 2; // primera columna
+      grid-row: 1 / 2; // primera fila
+      width: 13.9375rem !important; // 223px
+      height: 18.6875rem !important; // 299px
+      margin-top: 2.3125rem !important; // 37px desde arriba
+
+      h2 {
+        font-family: $fuente-secundaria;
+        font-weight: 800; // negrita
+        font-size: 3.125rem; // 50px
+        line-height: 0.9; // altura de línea igual al tamaño de fuente
+        width: 12.6875rem !important; // 203px
+        height: 8.4375rem !important; // 135px
+        text-transform: uppercase; // mayúsculas
+      } // fin h2
+      
+      p {
+        font-family: $fuente-principal;
+        font-size: 1.125rem; // 18px
+        line-height: 1.75rem; // 28px
+        width: 14.5625rem !important; // 233px
+        height: 8.75rem !important; // 140px
+        color: $color-dark-gray;
+      } // fin p
+    } /* fin titulo2 */
+
+    .galeria-1 {
+      grid-column: 2 / 3; // segunda columna
+      grid-row: 1 / 2; // primera fila
+      width: 24.875rem !important; // 398px
+      height: 25rem !important; // 400px
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover; // cubrir todo el contenedor
+        display: block; // eliminar espacio inferior
+      } // fin img
+    } /* fin galeria-1 */
+  } /* fin bloque-superior */
+
+  /* --- BLOQUE INFERIOR --- */
+  .bloque-inferior {
+    display: grid; // usar grid
+    width: 43.625rem !important;  // 698px
+    height: 45rem !important; // 720px
+    grid-template-columns: 24.875rem 17.5rem; // 398px y 280px
+    grid-template-rows: 19.5625rem 24.75rem; // 313px y 396px 
+    column-gap: 0.6875rem; // 11px separación entre columnas
+    row-gap: 0.6875rem;    // 11px separación entre filas
+    align-items: start;
+
+    .galeria-2 {
+      grid-column: 1 / 2; // columna izquierda
+      grid-row: 1 / 3; // ocupa toda la altura
+      width: 24.875rem !important; // 398px
+      height: 45rem !important; // 720px
+      align-self: start;   // <- lo pega arriba
+      justify-self: start; // <- opcional, por si acaso
+      margin: 0 !important; // <- asegura que no baje por márgenes raros
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block; // eliminar espacio inferior
+      } // fin img
+    } /* fin galeria-2 */
+
+    .galeria-3 {
+      grid-column: 2 / 3; // columna derecha
+      grid-row: 1 / 2; // fila superior
+      width: 17.5rem !important; // 280px
+      height: 19.5625rem !important; // 313px
+      margin: 0;
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block; // eliminar espacio inferior
+      } // fin img
+    } /* fin galeria-3 */
+
+    .titulo3 {
+      grid-column: 2 / 3; //  columna derecha
+      grid-row: 2 / 3;  // fila inferior
+      width: 17.5rem !important; // 280px
+      height: 24.72rem !important; // 396px
+      margin: 0;
+      padding: 5.3125rem 1.75rem 5.3125rem 1.8125rem; // 85px 28px 85px 29px
+
+      h2 {
+        font-family: $fuente-secundaria;
+        font-weight: 800; // negrita
+        font-size: 3.125rem; // 50px
+        line-height: 0.9; // altura de línea igual al tamaño de fuente
+        text-transform: uppercase; // mayúsculas
+        margin-bottom: 2rem; // 32px
+      } // fin h2
+
+      p {
+        font-family: $fuente-principal;
+        font-size: 1.125rem; // 18px
+        line-height: 1.75rem; // 28px
+        color: $color-dark-gray;
+      } // fin p
+    } // fin titulo3
+  } // fin bloque-inferior
+} // fin galeria
+} // fin tablet
+
+/* --- Laptop (>=1024px) --- */
+@include respond-to(laptop) {
+  :root {
+    --titulo-left: -34.5rem; // -552px
+    --titulo-top: 8.5rem;   // 136px
+  } // ajustar posición del título
+
+  main {
+    width: 64rem !important; // 1024px
+    height: 35.625rem !important; // 570px
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important; // usar flexbox
+    flex-direction: row !important; // fila
+    flex-wrap: nowrap !important; // sin wrap
+    justify-content: flex-start !important; // alinear al inicio
+    align-items: flex-start !important; // alinear al inicio
+    gap: 0 !important; // sin gap
+    margin-bottom: 100px !important; // espacio inferior
+    position: relative !important; // para posicionar elementos hijos
+    overflow: hidden !important; // evitar scroll horizontal
+
+    
+  } // fin main
+
+  .caja-negra,
+  .personas,
+  .contenido {
+    margin: 0 !important; // quitar márgenes
+    padding: 0 !important; // quitar padding
+    border: none !important; // quitar bordes si los hubiera
+    flex-shrink: 0 !important; // evitar que se reduzcan
+    position: relative !important; // para posicionar elementos hijos
+    top: 0 !important; // reset top
+    left: 0 !important; // reset left 
+    bottom: auto !important; // reset bottom
+    right: auto !important; // reset right
+  } // fin cajas
+
+  .caja-negra {
+    width: 19.75rem !important; // 316px
+    height: 35.625rem !important; // 570px
+    background: #000;
+  } // fin caja negra
+
+  .personas {
+    width: 23.75rem !important; // 380px
+    height: 35.625rem !important; // 570px
+    background: #ccc;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // cubrir todo el contenedor
+      display: block; // elimina espacio inferior
+    } //
+  } // fin personas
+
+  .contenido {
+    width: 19.9375rem !important; // 319px
+    height: 35.625rem !important; // 570px
+    background: #fff;
+
+    .titulo {
+      position: absolute; // posición absoluta
+      left: var(--titulo-left); // -552px
+      top: var(--titulo-top); // 136px
+    
+      h1{
+        color: $color-white !important;
+        font-size: 5rem !important; // 80px
+        font-weight: 900; // extra-negrita
+      } // fin h1
+  
+    } // fin titulo
+
+   .texto p  {
+      font-size: 1.25rem; // 20px
+      width: 21.25rem !important; // 340px
+      height: 10rem !important; // 160px
+      white-space: normal;   // permite saltos de línea
+      word-break: normal;    // no rompe palabras
+      overflow-wrap: normal; // no corta palabras largas
+      margin-top: 6.25rem !important; // 100px
+      margin-left: -2.5rem; // -40px
+      
+    } // fin texto
+    
+    .boton {
+      transform: translateX(-2.5rem) translateY(-2.5rem); // -40px -40px
+      margin-left:-2.5rem; // -40px
+    } // fin boton
+  } // fin contenido
+
+
+/* GALERÍA EN GRID */
+  .galeria {
+    width: 49.375rem !important; // 790px
+    margin-left: auto; // centrar horizontalmente
+    margin-right: auto; // centrar horizontalmente
+    display: flex !important; // contenedor flex
+    flex-direction: column !important; // apilados verticalmente
+    justify-content: flex-start !important; // alinear al inicio
+    gap: 1.3125rem !important; // 21px separación entre bloque superior e inferior
+       
+
+  article, h2, p, span {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; // para incluir padding y border en el tamaño
+    } // fin article, h2, p, span
+
+    h2 span,
+    p span {
+      display: inline !important; // inline para que no rompa líneas
+      white-space: normal !important; // permite saltos de línea
+    } // fin h2 span, p span
+
+    /* --- BLOQUE SUPERIOR --- */
+    .bloque-superior {
+      display: grid; // usar grid
+      width: 49.375rem !important; // 790px
+      height: 17.75rem !important;  // 284px
+      grid-template-columns: 22.5rem 25.5625rem; // titulo2 360px y galeria-1 409px
+      grid-template-rows: 28.125rem; // 284px
+      column-gap: 1.3125rem; // 21 px separación entre titulo2 y galeria-1
+      
+       
+
+      .titulo2 {
+        grid-column: 1 / 2; // primera columna
+        grid-row: 1 / 2; // primera fila
+        width: 18.75rem !important; // 300px
+        height: 12.4375rem !important;  // 199px
+        margin-top: 1.75rem !important; // 28px empieza desde arriba
+
+        h2 {
+          font-family: $fuente-secundaria;
+          font-weight: 800; // negrita
+          font-size: 3rem; // 48px
+          line-height: 1; // altura de línea igual al tamaño de fuente
+          width: 16.875rem !important; // 270px
+          height: 5.3125rem !important; // 85px
+          text-transform: uppercase; // mayúsculas
+        } // fin h2
+
+        p {
+          font-family: $fuente-principal; // tipografía principal
+          font-weight: 100; // peso ligero
+          line-height: 1.4; // altura de línea 1.4 veces el tamaño de fuente
+          margin-top: 1.421875rem !important; // 22.75px separación entre h2 y p
+          width: 18.75rem !important; // 300px
+          height: 7.75rem !important; // 124px
+          color: $color-dark-gray; // color gris oscuro
+        } // fin p
+      } /* fin titulo2 */
+
+      .galeria-1 {
+        grid-column: 2 / 3; // segunda columna
+        grid-row: 1 / 2; // primera fila
+        width: 28.125rem !important; // 450px
+        height: 17.75rem !important; // 284px
+        justify-self: end; // pegada a la derecha
+       
+
+        img {
+          width: 100% !important;  // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-1 */
+    } /* fin bloque-superior */
+
+    /* --- BLOQUE INFERIOR --- */
+     .bloque-inferior {
+        display: grid; // usar grid
+        width: 100%; // 790px
+        height: 32rem !important; // 512px                   
+        grid-template-columns: 28.1875rem 19.75rem; // 451px y 316px    
+        grid-template-rows: 13.90625rem 16.75rem; // 222.5px y 268px     
+        column-gap: 1.3125rem; // 21px separación entre columnas                     
+        row-gap: 1.3125rem;    // 21px separación entre filas                    
+        align-items: start; // alinear al inicio de cada celda
+        box-sizing: border-box; // incluir padding y border en el tamaño
+
+      .galeria-2 {
+        grid-column: 1 / 2;          // columna izquierda
+        grid-row: 1 / 3;           // ocupa fila 1 y fila 2 (verticalmente)
+        width: 28.1875rem !important; // 451px
+        height: 32rem !important;     // 512px            
+
+        img {
+          width: 100% !important; // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-2 */
+
+      /* galeria-3 en la columna derecha, fila superior */
+      .galeria-3 {
+        grid-column: 2 / 3;         // columna derecha
+        grid-row: 1 / 2;            // fila superior
+        width: 19.75rem !important; // 316px
+        height: 14.09375rem !important;  // 222.5px            
+
+        img {
+          width: 100% !important; // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor 
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-3 */
+
+      /* titulo3 en la columna derecha, fila inferior (justo debajo de galeria-3) */
+      .titulo3 {
+        grid-column: 2 / 3;         // columna derecha
+        grid-row: 2 / 3;          // fila inferior => justo debajo de galeria-3
+        width: 19.75rem !important; // 316px
+        height: 16.75rem !important; // 268px            
+        margin: 0; // sin margen 
+        padding: 1.75rem 1.25rem; // 28px 20px
+        box-sizing: border-box; // incluir padding en el tamaño
+        display: flex; // usar flexbox
+        flex-direction: column; // apilar verticalmente
+        justify-content: flex-start; // alinear al inicio
+
+        h2 {
+          font-family: $fuente-secundaria;
+          font-weight: 800; // negrita
+          font-size: 2.5rem; // 50px
+          line-height: 1.1; // altura de línea 1.1 veces el tamaño de fuente
+          text-transform: uppercase; // mayúsculas
+          margin-bottom: 1.5rem; // 24px separación debajo del h2
+        } //  
+
+        p {
+          font-family: $fuente-principal;
+          font-size: 1rem; // 18px  
+          line-height: 1.5rem; // 28px  altura de línea 1.5 veces el tamaño de fuente
+          color: $color-dark-gray; // color gris oscuro
+          margin: 0; // sin margen
+        } //  fin p
+      } // fin titulo3 
+    } // fin bloque-inferior 
+  } // fin galeria
+} // fin laptop
+
+/* --- Desktop (>=1440px) --- */
+@include respond-to(desktop) {
+  :root {
+    --titulo-left: -50.3125rem; // -805px
+    --titulo-top: 11.875rem;   // 190px
+  } // ajustar posición del título
+
+html body main .contenido .texto p { 
+  display: block !important; // forzar p como bloque
+} 
+html body main .contenido .texto p span { 
+  display: inline !important; // forzar span como inline
+} 
+
+  main {
+    width: 90rem !important; // 1440px
+    height: 50rem !important; // 800px
+    margin: 0 auto !important; // centrar horizontalmente
+    padding: 0 !important; // sin padding
+    display: flex !important; // usar flexbox
+    flex-direction: row !important; // fila
+    flex-wrap: nowrap !important; // sin wrap
+    justify-content: flex-start !important; // alinear al inicio
+    align-items: flex-start !important; // alinear al inicio
+    gap: 0 !important; // sin gap
+    margin-bottom: 11.25rem  !important; // 180px espacio inferior
+    position: relative !important; // para posicionar elementos hijos
+    overflow: hidden !important; // ocultar desbordamiento  
+        
+ 
+
+  .caja-negra,
+  .personas,
+  .contenido {
+    margin: 0 !important;  // sin margen
+    padding: 0 !important; // sin padding
+    border: none !important; // sin borde
+    flex-shrink: 0 !important; // no reducir tamaño
+    position: relative !important; // posición relativa
+    top: 0 !important; // top 0
+    left: 0 !important; // left 0
+    bottom: auto !important; // bottom auto
+    right: auto !important; // right auto
+  } // fin cajas
+
+  .caja-negra {
+    width: 28.125rem !important; // 450px
+    height: 50rem !important; // 800px
+    background: $color-black-text; // caja negra
+  } // fin caja negra
+
+  .personas {
+    width: 33.75rem !important; // 540px
+    height: 50rem !important; // 800px
+    background: #ccc; // fondo gris claro
+
+    img {
+      width: 100%; // ancho completo
+      height: 100%; // alto completo
+      object-fit: cover; // cubrir contenedor
+      display: block; // eliminar espacio inferior
+    } // fin img
+  } // fin personas
+
+  .contenido {
+    width: 28.125rem !important; // 450px
+    height: 50rem !important; // 800px
+    background: #fff;
+
+    .contenido .texto p,
+    .contenido .texto p span {
+      font-size: 1.375rem !important; // 22px
+      line-height: 2rem !important; // 32px
+    }
+
+    .titulo {
+      position: absolute; // posición absoluta
+      left: var(--titulo-left); // -805px
+      top: var(--titulo-top); // 190px
+    
+      h1{
+        color: $color-white !important;
+        font-size: 6rem !important; // 96px
+        font-weight: 900; // negrita 
+      } // fin h1
+  
+    } // fin titulo
+
+   .texto p  {
+      font-size: 1.375rem !important; // 22px
+      line-height: 2rem !important; // 32px
+      width: 21.875rem !important; // 350px
+      height: 10rem !important; // 160px
+      display: block !important;        // bloque para controlar saltos de línea
+      white-space: normal !important;   // permite saltos de línea
+      word-break: normal !important;    // no rompe palabras
+      overflow-wrap: normal !important; // no corta palabras largas
+      margin-top: 11.875rem !important; // 190px
+      margin-left: -4.10rem !important; // -66px
+      hyphens: none !important; // sin guiones
+  
+     span {
+        display: inline !important; // inline para que no rompa líneas
+        white-space: normal !important; // permite saltos de línea
+        line-height: inherit !important; // hereda la altura de línea del p
+        word-break: normal !important; // no rompe palabras
+        overflow-wrap: normal !important; // no corta palabras largas
+        margin: 0 !important; // sin margen
+        padding: 0 !important; // sin padding
+      }
+    } // fin texto
+    
+    .boton {
+      transform: translateX(-4.1rem) translateY(-2.5rem); // -66px -40px
+      margin-left:-4.1rem; // -66px
+      margin-top: 4rem !important; // 64px
+    } // fin boton
+  } // fin contenido
+  } // fin main
+
+/* GALERÍA EN GRID */
+  .galeria {
+    width: 69.375rem !important; // 1110px
+    height: 1150px !important;
+    margin-left: auto; // centrar horizontalmente
+    margin-right: auto; // centrar horizontalmente
+    margin-bottom: 11.25rem !important; // 180px espacio inferior
+    display: flex !important; // contenedor flex
+    flex-direction: column !important; // apilados verticalmente
+    justify-content: flex-start !important; // alinear al inicio
+    gap: 1.3125rem !important; // 21px separación entre bloque superior e inferior
+    overflow: hidden !important; // ocultar desbordamiento
+
+
+  article, h2, p, span {
+      margin: 0; // reset margen
+      padding: 0; // reset padding
+      box-sizing: border-box; // para incluir padding y border en el tamaño
+    }
+
+    h2 span,
+    p span {
+      display: inline !important; // inline para que no rompa líneas
+      white-space: normal !important; // permite saltos de línea
+    }
+
+    /* --- BLOQUE SUPERIOR --- */
+    .bloque-superior {
+      display: grid; // usar grid
+      width: 69.375rem !important; // 1110px
+      height: 25rem !important;    // 400px
+      grid-template-columns: 27.4375rem 40.625rem; //  439px titulo2 650px y galeria-1
+      grid-template-rows: 25rem;   // 400px
+      column-gap: 1.3125rem; // 21px separación entre titulo2 y galeria-1
+      
+       
+
+      .titulo2 {
+        grid-column: 1 / 2; // primera columna
+        grid-row: 1 / 2; // primera fila
+        width: 21.875rem !important; // 350px
+        height: 17.5rem !important; // 280px
+        margin-top: 3.125rem !important; // 50px empieza desde arriba
+
+        h2 {
+          font-family: $fuente-secundaria;
+          font-weight: 800; // negrita
+          font-size: 3.75rem; // 60px
+          line-height: 1; // altura de línea igual al tamaño de fuente
+          width: 21.25rem !important; // 340px
+          height: 7.5rem !important; // 120px
+          text-transform: uppercase; // mayúsculas
+        }
+
+        p {
+          font-family: $fuente-principal;
+          font-size: 1.375rem; // 22px
+          font-weight: 100; // peso ligero
+          line-height: 1.4; // altura de línea 1.4 veces el tamaño de fuente
+          margin-top: 2rem !important; // 32px separación entre h2 y p
+          width: 19.375rem !important; // 310px
+          height: 8rem !important; // 128px
+          color: $color-dark-gray;
+        }
+      } /* fin titulo2 */
+
+      .galeria-1 {
+        grid-column: 2 / 3; // segunda columna
+        grid-row: 1 / 2; // primera fila
+        width: 40.625rem !important; // 650px
+        height: 25rem !important; // 400px
+        justify-self: end; // pegada a la derecha
+       
+
+        img {
+          width: 100% !important; // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-1 */
+    } /* fin bloque-superior */
+
+    /* --- BLOQUE INFERIOR --- */
+     .bloque-inferior {
+        display: grid;
+        width: 100%;                 // 1110px
+        height: 71.875rem !important;   // 1150px              
+        grid-template-columns: 39.6875rem 27.8125rem; // 635px y 445px    
+        grid-template-rows: 19.5625rem 23.5625rem; // 313px y 377px     
+        column-gap: 1.875rem; // 30px separación entre columnas                     
+        row-gap: 1.875rem;    // 30px separación entre filas                  
+        align-items: start; // alinear al inicio de cada celda
+        box-sizing: border-box; // incluir padding y border en el tamaño
+
+      .galeria-2 {
+        grid-column: 1 / 2;        // columna izquierda
+        grid-row: 1 / 3;           // ocupa fila 1 y fila 2 (verticalmente)
+        width: 39.6875rem !important; // 635px
+        height: 45rem !important;   // 720px            
+
+        img {
+          width: 100% !important; // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-2 */
+
+      /* galeria-3 en la columna derecha, fila superior */
+      .galeria-3 {
+        grid-column: 2 / 3;         // columna derecha
+        grid-row: 1 / 2;            // fila superior
+        width: 27.8125rem !important; // 445px
+        height: 19.5625rem !important; // 313px            
+
+        img {
+          width: 100% !important; // cubrir todo el contenedor
+          height: 100% !important; // cubrir todo el contenedor
+          object-fit: cover; // cubrir todo el contenedor
+          display: block; // eliminar espacio inferior
+        }
+      } /* fin galeria-3 */
+
+      /* titulo3 en la columna derecha, fila inferior (justo debajo de galeria-3) */
+      .titulo3 {
+        grid-column: 2 / 3;     //  columna derecha 
+        grid-row: 2 / 3;          // fila inferior => justo debajo de galeria-3
+        width: 27.8125rem !important; // 445px
+        height: 23.5625rem !important; // 377px             
+        margin: 0; // sin margen
+        padding: 4.0625rem 2.9375rem 4rem 3rem; // 65px 47px 64px 48px
+        box-sizing: border-box; // incluir padding en el tamaño
+        display: flex; // usar flexbox
+        flex-direction: column; // apilar verticalmente
+        justify-content: flex-start; // alinear al inicio
+
+        h2 {
+          font-family: $fuente-secundaria;
+          font-weight: 800; // negrita
+          font-size: 3.75rem; // 60px
+          line-height: 1.1; // altura de línea 1.1 veces el tamaño de fuente
+          text-transform: uppercase;  
+          margin-bottom: 1.5rem; // 24px separación debajo del h2
+        }
+
+        p {
+          font-family: $fuente-principal;
+          font-size: 1.375rem; // 22px
+          line-height: 1.5rem; // 24px altura de línea 1.5 veces el tamaño de fuente
+          color: $color-dark-gray;
+          margin: 0; // sin margen
+        }
+      } // fin titulo3
+    } // fin bloque-inferior 
+  } // fin galeria
+  } // fin desktop

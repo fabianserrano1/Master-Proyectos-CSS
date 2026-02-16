@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea 1 - Header Spa and Beauty</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
+  </head>
+  <body>
+    <div class="contenedor">
+
+      <header class="header">
+        <!-- Logo -->
+        <a href="/" class="logo" title="Ir a la página de inicio">
+          <span class="logo-glow">Glow</span>
+          <span class="logo-queen">Queen</span>
+        </a>
+
+        <!-- Nav principal -->
+        <nav class="nav-main">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Facilities</a></li>
+            <li><a href="#">More</a></li>
+          </ul>
+        </nav>
+
+        <!-- Nav secundario (iconos + botones) -->
+        <nav class="nav-icons">
+          <ul>
+            <li><a href="#" class="search"><img src="./img/buscar_1x.svg" alt="Buscar"></a></li>
+            <li><a href="#" class="cart"><img src="./img/Shopping_1x.svg" alt="Carrito"></a></li>
+            <li><button class="in">Sign In</button></li>
+            <li><button class="up">Sign Up</button></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main">
+
+        <!-- Columna izquierda -->
+        <div class="izq-container">
+          <!-- Contenedor título + botones + opciones -->
+          <div class="titulo">
+            <h1>Bring back the beauty and glow of your skin</h1>
+            <p>We provide you various treatments from head to toe using the best product, advanced technology, and affordable price</p>
+
+            <!-- Botones principales -->
+            <div class="botones">
+              <a href="#" class="btn-book">Book Now</a>
+              <a href="#" class="btn-play">
+                <img src="./img/Play.svg" alt="icono play">Watch Video
+              </a>
+            </div>
+          </div>
+
+            <!-- Opciones debajo del título -->
+            <div class="opciones">
+              <div class="opcion special">
+                <img src="./img/icon_special.svg" alt="Icono Special Treatment">
+                <p class="number">15+</p>
+                <p class="texto">Special Treatment</p>
+              </div>
+              <div class="opcion professional">
+                <img src="./img/icon_professional.svg" alt="Icono Professional Therapist">
+                <p class="number">25+</p>
+                <p class="texto">Professional Therapist</p>
+              </div>
+              <div class="opcion herbal">
+                <img src="./img/icon_herbal.svg" alt="Icono Herbal Cream Formula">
+                <p class="number">100%</p>
+                <p class="texto">Herbal Cream Formula</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: mujer + testimonios -->
+        <div class="woman-container">
+          <div class="woman">
+            <!-- Capa 1: fondo cyan -->
+            <div class="bg-cyan" aria-hidden="true"></div>
+
+            <!-- Capa 2: flor gris -->
+            <div class="flor-gris" aria-hidden="true">
+              <img src="./img/flor-gris.png" alt="">
+            </div>
+
+            <!-- Capa 3: foto de la mujer -->
+            <div class="woman-img">
+              <img src="./img/woman.png" alt="foto mujer">
+            </div>
+          </div>
+
+          <!-- Testimonios -->
+          <div class="testimonios">
+            <article class="testimonio_1">
+              <img src="./img/comillas.svg" alt="comillas">
+              <p>I have a regular schedule to take treatment from GlowQueen, they gave me the best service and treatment ever to maintain the beauty and health of my skin</p>
+              <p class="autor">Sophia Princeton</p>
+            </article>
+            <article class="testimonio_2">
+              <img src="./img/comillas.svg" alt="comillas">
+              <p>For the past few years, I've had a hard time finding the right place for skin care to deal with my complicated skin condition, thank God I found GlowQueen to treat my skin</p>
+              <p class="autor">Tamara Jules</p>
+            </article>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

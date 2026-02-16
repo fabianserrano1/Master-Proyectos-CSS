@@ -1,0 +1,659 @@
+@use 'variables' as *;
+@use 'mixins' as *; /* para los breakpoints */
+
+/* --- footer home mobile-frist --- */
+footer.home {
+  display: flex;
+  flex-direction: column;       /* elementos en columna */
+  justify-content: flex-start;  /* empiezan desde arriba */
+  align-items: flex-start;      /* alineados a la izquierda */
+  width: 100%; // 375px
+  max-width: 23.4375rem; // 375px    
+  height: 21rem; // 336px              
+  padding: 3rem 2rem; // 48px 32px          
+  box-sizing: border-box; // incluye padding en el tamaño total
+  background-color: $color-black-bg;
+  color: $color-white;
+  font-family: $fuente-principal;
+
+  .logo h3 {
+    font-family: $fuente-secundaria;
+    font-weight: 800; // bold
+    font-size: 1.5rem; // 24px
+    line-height: 1.75rem; // 28px
+    margin-bottom: 2.375rem; // 38px separación h3 → p 
+
+    span {
+      display: block;   //respeta saltos de línea
+    }
+  }
+
+  .info p {
+    font-family: $fuente-principal;
+    font-weight: 300; //
+    font-size: 1rem;
+    line-height: 1.625rem; // 26px
+    margin-bottom: 2.375rem; // 38px separación p → iconos 
+
+    span {
+      display: block;       // respeta saltos de línea
+    }
+  }
+
+  .redes {
+    display: flex; // contenedor flex para los iconos
+    gap: 1.25rem;     // 20px separación entre iconos
+
+    img {
+      width: 1.25rem;  // 20px
+      height: 1.25rem; // 20px
+      filter: invert(100%) brightness(200%); // iconos blancos
+      transition: transform 0.3s; // transición suave
+
+      &:hover {
+        transform: scale(1.3); // agranda icono al pasar el ratón
+        cursor: pointer; // cambia el cursor
+      }
+    }
+  }
+}
+
+/*  --- Footer Location Mobile-Frist --- */
+footer.footer-location {
+  display: flex; // contenedor flex
+  flex-direction: column;       // elementos en columna
+  justify-content: flex-start;  // empiezan desde arriba
+  align-items: flex-start;      // alineados a la izquierda
+  width: 100%; // 375px
+  max-width: 23.4375rem; // 375px           
+  height: 21rem; // 336px              
+  padding: 3rem 2rem; // 48px 32px          
+  background-color: $color-gold;
+  color: $color-black-text;
+  font-family: $fuente-principal;
+
+  .logo h3 {
+    font-family: $fuente-secundaria;
+    font-weight: 800; // bold
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 38px;
+
+    span {
+      display: block;            /* respeta saltos de línea */
+    }
+  }
+
+  .info p {
+    font-family: $fuente-principal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 38px;
+
+    span {
+      display: block;            /* respeta saltos de línea */
+    }
+  }
+
+  .redes {
+    display: flex;
+    gap: 20px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      filter: invert(0%);        /* iconos negros sobre fondo dorado */
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* --- Breakpoints --- */
+/* --- footer Home tablet --- */
+@include respond-to(tablet) {
+    footer.home {
+    width: 768px !important;  
+    max-width: none !important;                
+    height: 216px !important;                 
+    padding: 56px 39px 56px 40px;  
+    margin: 0; 
+    background-color: $color-black-bg;
+    color: $color-white;
+    font-family: $fuente-principal;                    
+    display: flex;
+    flex-direction: row;           // logo, info, redes en horizontal
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    /* --- Contenedor interno --- */
+    .footer-container {
+      width: 689px; 
+      height: 104px;                
+      display: flex;
+      flex-direction: row;
+      align-items: top;
+      justify-content: flex-start;
+    }
+
+    /* --- Logo --- */
+    .logo {
+      flex-shrink: 0;
+
+      h3 {
+        font-family: $fuente-secundaria;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 23px;
+        margin: 0;
+        width: 120px;          
+        height: 44px;         
+        
+      }
+    }
+
+    /* --- Información --- */
+    .info {
+      width: 281px;        
+      height: 104px;        
+      margin-left: 64.95px;   
+      margin-right: 133px;   
+      flex-shrink: 0;
+    
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0;
+        overflow-wrap: break-word;
+        white-space: normal;
+        word-break: normal;
+        
+        span {
+          display: inline !important;
+        }
+      }
+    }
+
+    /* --- Redes sociales --- */
+    .redes {
+      display: flex;
+      width: 100px;       
+      height: 20px;      
+      gap: 20px;
+      flex-shrink: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        filter: invert(100%) brightness(200%);
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* --- footer Location tablet --- */
+@include respond-to(tablet) {
+    footer.footer-location {
+    width: 768px !important;  
+    max-width: none !important;                
+    height: 216px !important;                 
+    padding: 56px 39px 56px 40px;  
+    margin-top: 0 !important; 
+    background-color: $color-gold;
+    color: $color-black-text;
+    font-family: $fuente-principal;                    
+    display: flex;
+    flex-direction: row;           // logo, info, redes en horizontal
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    /* --- Contenedor interno --- */
+    .footer-container {
+      width: 689px; 
+      height: 104px;                
+      display: flex;
+      flex-direction: row;
+      align-items: top;
+      justify-content: flex-start;
+    }
+
+    /* --- Logo --- */
+    .logo {
+      flex-shrink: 0;
+
+      h3 {
+        font-family: $fuente-secundaria;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 23px;
+        margin: 0;
+        width: 120px;          
+        height: 44px;         
+        
+      }
+    }
+
+    /* --- Información --- */
+    .info {
+      width: 281px;        
+      height: 104px;        
+      margin-left: 64.95px;   
+      margin-right: 133px;
+      margin-top: 0!important;   
+      flex-shrink: 0;     
+
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0 !important;
+        overflow-wrap: break-word;
+        white-space: normal;
+        word-break: normal;
+        
+        span {
+          display: inline !important;
+        }
+      }
+    }
+
+    /* --- Redes sociales --- */
+    .redes {
+      display: flex;
+      width: 100px;       
+      height: 20px;      
+      gap: 20px;
+      flex-shrink: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        
+
+        &:hover {
+          transform: scale(1.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* --- footer Home laptop --- */
+@include respond-to(laptop) {
+    footer.home {
+    width: 1024px !important;  
+    max-width: none !important;                
+    height: 244px !important;                 
+    margin: 0 auto !important; 
+    background-color: $color-black-bg;
+    color: $color-white;
+    font-family: $fuente-principal;                    
+    display: flex;
+    flex-direction: row;           // logo, info, redes en horizontal
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    /* --- Contenedor interno --- */
+    .footer-container {
+      width: 790px !important; 
+      height: 60px !important;                
+      display: flex;
+      margin-top: 80px;
+      margin-bottom: 80px;
+      flex-direction: row;
+      align-items: top;
+      
+    }
+
+    /* --- Logo --- */
+    .logo {
+      flex-shrink: 0;
+
+      h3 {
+        font-family: $fuente-secundaria;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 23px;
+        margin-left: 117.33px;
+        width: 116px;          
+        height: 41px;         
+        
+      }
+    }
+
+    /* --- Información --- */
+    .info {
+      width: 335px;        
+      height: 60px;        
+      margin-left: 64.95px;   
+      margin-right: 133px; 
+      margin-bottom: 0!important;  
+      flex-shrink: 0;
+    
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0 !important;
+        overflow-wrap: break-word;
+        white-space: normal;
+        word-break: normal;
+        
+        span {
+          display: inline !important;
+        }
+      }
+    }
+
+    /* --- Redes sociales --- */
+    .redes {
+      display: flex;
+      width: 100px;       
+      height: 20px;      
+      gap: 20px;
+      flex-shrink: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        filter: invert(100%) brightness(200%);
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* --- footer Location laptop --- */
+@include respond-to(laptop) {
+    footer.footer-location {
+    width: 1024px !important;  
+    max-width: none !important;                
+    height: 216px !important;                 
+    padding: 56px 39px 56px 117.33px;  
+    margin: 0 auto !important; 
+    background-color: $color-gold;
+    color: $color-black-text;
+    font-family: $fuente-principal;                    
+    display: flex;
+    flex-direction: row;           // logo, info, redes en horizontal
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    /* --- Contenedor interno --- */
+    .footer-container {
+      width: 689px; 
+      height: 104px;                
+      display: flex;
+      flex-direction: row;
+      align-items: top;
+      justify-content: flex-start;
+    }
+
+    /* --- Logo --- */
+    .logo {
+      flex-shrink: 0;
+
+      h3 {
+        font-family: $fuente-secundaria;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 23px;
+        margin: 0;
+        width: 120px;          
+        height: 44px;         
+        
+      }
+    }
+
+    /* --- Información --- */
+    .info {
+      width: 281px;        
+      height: 104px;        
+      margin-left: 64.95px;   
+      margin-right: 133px;   
+      flex-shrink: 0;     
+
+      p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0;
+        overflow-wrap: break-word;
+        white-space: normal;
+        word-break: normal;
+        
+        span {
+          display: inline;
+        }
+      }
+    }
+
+    /* --- Redes sociales --- */
+    .redes {
+      display: flex;
+      width: 100px;       
+      height: 20px;      
+      gap: 20px;
+      flex-shrink: 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* --- footer Home desktop --- */
+  @include respond-to(desktop) {
+      footer.home {
+      width: 1440px !important;  
+      max-width: none !important;                
+      height: 244px !important;               
+      margin: 0 auto !important; 
+      background-color: $color-black-bg;
+      color: $color-white;
+      font-family: $fuente-principal;                    
+      display: flex;
+      flex-direction: row;           // logo, info, redes en horizontal
+      align-items: flex-start;       // centrados verticalmente
+      justify-content: flex-start;   // alineados a la izquierda
+      box-sizing: border-box;
+      margin-top: 0px !important;
+      padding-top: 0px !important;
+     
+
+      /* --- Contenedor interno --- */
+      .footer-container {
+        width: 1110px !important; 
+        height: 84px !important;                
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+               
+      }
+
+      /* --- Logo --- */
+      .logo {
+        flex-shrink: 0;
+
+        h3 {
+          font-family: $fuente-secundaria;
+          font-weight: 800;
+          font-size: 33px;
+          line-height: 30px;       
+          width: 160px;          
+          height: 58px;
+          margin-left: 0 !important       
+          
+        }
+      }
+
+      /* --- Información --- */
+      .info {
+        width: 430px;        
+        height: 84px;        
+        margin-left: 140px;   
+        margin-right: 280px;   
+        flex-shrink: 0;
+            
+        p {
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 28px;
+          margin: 0;
+          overflow-wrap: break-word;
+          white-space: normal;
+          word-break: normal;
+          
+          span {
+            display: inline !important;
+          }
+        }
+      }
+
+      /* --- Redes sociales --- */
+      .redes {
+        display: flex;
+        width: 100px;       
+        height: 20px;      
+        gap: 20px;
+        flex-shrink: 0;
+
+        img {
+          width: 20px;
+          height: 20px;
+          filter: invert(100%) brightness(200%);
+          transition: transform 0.3s;
+
+          &:hover {
+            transform: scale(1.3);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+/* --- footer Location desktop --- */
+@include respond-to(desktop) {
+      footer.footer-location {
+        width: 1440px !important;  
+        max-width: none !important;                
+        height: 244px !important;               
+        margin: 0 auto !important; 
+        background-color: $color-gold;
+        color: $color-black-text;
+        font-family: $fuente-principal;                    
+        display: flex;
+        flex-direction: row;           // logo, info, redes en horizontal
+        align-items: flex-start;       // centrados verticalmente
+        justify-content: flex-start;   // alineados a la izquierda
+        box-sizing: border-box;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+     
+
+      /* --- Contenedor interno --- */
+      .footer-container {
+        width: 1110px !important; 
+        height: 84px !important;                
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 80px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+                     
+      }
+
+      /* --- Logo --- */
+      .logo {
+        flex-shrink: 0;
+
+        h3 {
+          font-family: $fuente-secundaria;
+          font-weight: 800;
+          font-size: 33px;
+          line-height: 30px;       
+          width: 160px;          
+          height: 58px;
+          margin-left: 0 !important       
+          
+        }
+      }
+
+      /* --- Información --- */
+      .info {
+        width: 430px;        
+        height: 84px;        
+        margin-left: 140px;   
+        margin-right: 280px;   
+        flex-shrink: 0;
+            
+        p {
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 28px;
+          margin: 0;
+          overflow-wrap: break-word;
+          white-space: normal;
+          word-break: normal;
+          
+          span {
+            display: inline !important;
+          }
+        }
+      }
+
+      /* --- Redes sociales --- */
+      .redes {
+        display: flex;
+        width: 100px;       
+        height: 20px;      
+        gap: 20px;
+        flex-shrink: 0;
+
+        img {
+          width: 20px;
+          height: 20px;
+          transition: transform 0.3s;
+
+          &:hover {
+            transform: scale(1.3);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
