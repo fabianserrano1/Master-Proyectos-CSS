@@ -12,9 +12,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 // Exportar configuración
 export default defineConfig({
-  base: isProduction
-    ? '/Master-Proyectos-CSS/portfolio/code/dist/' // ruta absoluta en GitHub Pages
-    : '/', // ruta raíz en desarrollo
+  base: '/Master-Proyectos-CSS/',
   root: '.',
   build: {
     outDir: 'dist',
