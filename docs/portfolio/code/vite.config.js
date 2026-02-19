@@ -12,7 +12,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 // Exportar configuración
 export default defineConfig({
-  base: '/Master-Proyectos-CSS/',
+  base: '/Master-Proyectos-CSS/portfolio/code/dist/', // esto asegura que GitHub Pages encuentre assets
   root: '.',
   build: {
     outDir: 'dist',
@@ -22,4 +22,4 @@ export default defineConfig({
       },
     },
   },
-})
+});
